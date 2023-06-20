@@ -54,8 +54,7 @@ int registro() //início das funções
 	fprintf(file, cargo); //salva a informação da variável
 	fclose(file); //fecha o arquivo
 	
-	system("pause"); //pausa até que o usuário ordene o contrário
-	
+	system("pause"); //pausa até que o usuário ordene o contrário	
 }
 
 int consulta()
@@ -81,9 +80,9 @@ int consulta()
 		printf("\n\n"); //pulando linhas
 	}
 	
-	system("pause"); //pausa até que o usuário ordene o contrário
+	fclose(file); //fecha o arquivo
 	
-	fclose(file);	
+	system("pause"); //pausa até que o usuário ordene o contrário
 }
 
 int deletar()
@@ -109,52 +108,66 @@ int deletar()
  
 int main()
 {	
+	setlocale(LC_ALL, "Portuguese"); //definindo a linguagem
 	int opcao = 0; //definindo as variáveis
 	int laco = 1; //definindo as variáveis
+	char senhadigitada[10] = "a"; //definindo as variáveis
+	int comparacao; //definindo as variáveis
 	
-	for(laco = 1; laco = 1;) //mantém o menu rodando até que o usuário ordene o contrário
+	printf("### Cartório da EBAC ###\n\n"); //início do menu
+	printf("Login de administrador\n\nDigite a sua senha: ");
+	scanf("%s", senhadigitada); //armazenando a informação do usuário
+	system("cls"); //limpa a tela
+	
+	comparacao = strcmp(senhadigitada, "admin");
+	
+	if(comparacao == 0) //caso a senha estiver correta
 	{
-		
-		system("cls"); //limpa a tela
-	
-		setlocale(LC_ALL, "Portuguese"); //definindo a linguagem
-	
-		printf("### Cartório da EBAC ###\n\n"); //início do menu
-		printf("Escolha a opção desejada do menu:\n\n");
-		printf("\t1 - Registrar Informações\n");
-		printf("\t2 - Consultar Informações\n");
-		printf("\t3 - Deletar Informações\n");
-		printf("\t4 - Sair do Sistema\n\n");
-		printf("Opção: ");	//fim do menu
-
-		scanf("%d", &opcao); //armazenando a escolha do usuário(%d refere-se a inteiro)
-
-		system("cls"); //limpa a tela
-		
-		switch(opcao) //início da seleção
+		for(laco = 1; laco = 1;) //mantém o menu rodando até que o usuário ordene o contrário
 		{
-			case 1: //case = caso seja
-			registro(); //função chamada
-			break; //encerra o case
-			
-			case 2: //case = caso seja
-			consulta(); //função chamada
-			break; //encerra o case
-			
-			case 3: //case = caso seja
-			deletar(); //função chamada
-			break; //encerra o case
-			
-			case 4: //case = caso seja
-			printf("Obrigado por utilizar o sistema!\n");
-			return 0; //quebra tudo e sai do sistema
-			break; //encerra o case
-			
-			default: //caso seja qualquer número fora dos cases
-			printf("Esta opção não está disponível!\n");
-			system("pause"); //pausa até que o usuário ordene o contrário
-			break; //encerra o case
-		} //fim da seleção
 		
-	}	
+			system("cls"); //limpa a tela
+	
+			setlocale(LC_ALL, "Portuguese"); //definindo a linguagem
+
+			printf("Escolha a opção desejada do menu:\n\n");
+			printf("\t1 - Registrar Informações\n");
+			printf("\t2 - Consultar Informações\n");
+			printf("\t3 - Deletar Informações\n");
+			printf("\t4 - Sair do Sistema\n\n");
+			printf("Opção: ");	//fim do menu
+
+			scanf("%d", &opcao); //armazenando a escolha do usuário(%d refere-se a inteiro)
+
+			system("cls"); //limpa a tela
+		
+			switch(opcao) //início da seleção
+			{
+				case 1: //case = caso seja
+				registro(); //função chamada
+				break; //encerra o case
+			
+				case 2: //case = caso seja
+				consulta(); //função chamada
+				break; //encerra o case
+			
+				case 3: //case = caso seja
+				deletar(); //função chamada
+				break; //encerra o case
+			
+				case 4: //case = caso seja
+				printf("Obrigado por utilizar o sistema!\n");
+				return 0; //quebra tudo e sai do sistema
+				break; //encerra o case
+				
+				default: //caso seja qualquer número fora dos cases
+				printf("Esta opção não está disponível!\n");
+				system("pause"); //pausa até que o usuário ordene o contrário
+				break; //encerra o case
+			} //fim da seleção
+	    }	
+	}
+
+	else
+		printf("Senha incorreta!");
 }
