@@ -1,0 +1,54 @@
+____________________________________________________________________
+int main()
+	-100% correta
+____________________________________________________________________
+
+registro()
+	-inicia e encerra na mesma função
+	-100% correta
+____________________________________________________________________
+
+consulta()
+	-inicia e encerra na mesma função
+	-100% correta
+____________________________________________________________________
+
+deletar()
+	-sempre vai retornar que o usuário não está no sistema
+	(não impacta na funcionalidade para o cliente)
+	-inicia e encerra na mesma função
+	-100% correta
+____________________________________________________________________
+
+login: 100% correto
+____________________________________________________________________
+
+cenário de teste: 1434
+____________________________________________________________________
+
+Registrar Informações:
+	-menu funcionou corretamente
+	-criou o arquivo
+	-cpf, nome, sobrenome e cargo: ok
+	-retorno ao menu: ok
+____________________________________________________________________
+
+Consultar Informações:
+	-menu funcionou corretamente
+	-consulta a cpf inexistente: ok
+	-consulta a cpf existente: ok
+	-retorno ao menu: ok
+____________________________________________________________________
+
+Deletar Informações:
+	-menu funcionou corretamente 
+	-100% correto
+____________________________________________________________________
+
+Saída do Sistema:
+	-100% correto
+____________________________________________________________________
+
+
+	
+
